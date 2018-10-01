@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.qtcbeans.*;
+
 @RestController
 public class GreetingController {
 
@@ -18,4 +20,12 @@ public class GreetingController {
                             String.format(template, name));
     }
 	
+    @RequestMapping(value="/find", method=RequestMethod.GET)
+    public Caso caso(@RequestParam(value="id", defaultValue="0") int id) {
+    	Caso caso = new Caso();
+    	caso.setTitulo("Ola");
+    	caso.setDescricao("funcionou");
+    	
+    	return caso;
+    }
 }
